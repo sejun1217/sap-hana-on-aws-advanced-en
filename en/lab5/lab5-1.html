@@ -871,13 +871,13 @@ global_allocation_limit <span style="color:#f92672">=</span> <span style="color:
 <li>
 <p>After Takover, change <strong>SAPHanaSR-Hook</strong> so that the existing settings can be restored.</p>
 <ul>
-<li>(sechana) root user 접속 후, SAPHanaSR.py 수정하기 전에 스크립트를 백업 합니다.</li>
+<li>(sechana) After log in root user, Back up the script before modifying SAPHanaSR.py.</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">exit
 cd /usr/share/SAPHanaSR/
 cp -pr SAPHanaSR.py SAPHanaSR.py.default
 </code></pre></div><ul>
-<li>(sechana) After connecting as root user, back up the script before modifying <strong>SAPHanaSR.py</strong>.
+<li>(sechana) Modify the SAPHanaSR.py script as follows:
 <ul>
 <li>Block 1(AS-Is)
 <img src="lab5-1/images/08.png" alt="image08"></li>

@@ -860,20 +860,22 @@ crm_mon -rfn1
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">SAPHanaSR-showAttr
 </code></pre></div><p><img src="lab5-4/images/07.png" alt="image07"></p>
 <ul>
-<li>Since OS is in normal state and <strong>PREFER_SITE_TAKEOVER</strong> option has been changed to <strong>false</strong>, DB was restarted in prihana without being taken over to sechana.</li>
+<li>Since <strong>prihana</strong> instance is in normal state and <strong>PREFER_SITE_TAKEOVER</strong> option has been changed to <strong>false</strong>, DB was restarted in prihana without being taken over to sechana.</li>
 </ul>
 </li>
 </ul>
 <ol start="2">
 <li>
-<p>The <strong>second scenario</strong> checks how the cluster works when <strong>prihana&rsquo;s OS crashes</strong>.</p>
+<p>The <strong>second scenario</strong> checks how the cluster works when <strong>Stop prihana Instance</strong>.</p>
 <ul>
-<li>Crash OS(fast reboot)</li>
+<li>
+<p>Crash OS(Stop Instance)</p>
+<ul>
+<li>After log in AWS Management Console, connect to <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId" target="_blank">EC2 Instance Console</a></li>
+<li>Select <strong>ANA-HDB-Primary</strong> instance, click <strong>Instance state</strong>, and click <strong>Stop Instance</strong>.
+<img src="lab5-4/images/17.png" alt="image03-01"></li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
-echo <span style="color:#e6db74">&#39;b&#39;</span> &gt; /proc/sysrq-trigger
-exit
-</code></pre></div><ul>
+</li>
 <li>
 <p>Connect to <strong>sechana</strong> through Session Manager.</p>
 <ul>
