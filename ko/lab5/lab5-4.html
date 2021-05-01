@@ -868,18 +868,20 @@ crm_mon -rfn1
 <li>
 <p>두번째 시나리오는 prihana의 인스턴스를 stop 했을 때, Cluster가 어떻게 동작 하는지 확인 합니다.</p>
 <ul>
-<li>prihana의 OS를 fast reboot 합니다.</li>
+<li>
+<p><strong>prihana</strong>의 Instance를 Stop 합니다.</p>
+<ul>
+<li>AWS Management Console에 로그인 한 뒤 <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId" target="_blank">EC2 Instance Console</a>에 접속 합니다.</li>
+<li><strong>HANA-HDB-Primary</strong> 인스턴스를 선택하고, <strong>Instance state</strong> 를 선택하고, <strong>Stop Instance</strong> 선택 합니다.
+<img src="lab5-4/images/17.png" alt="image03-01"></li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
-echo <span style="color:#e6db74">&#39;b&#39;</span> &gt; /proc/sysrq-trigger
-exit
-</code></pre></div><ul>
+</li>
 <li>
 <p>Session Manager를 통해 sechana에 접속합니다.</p>
 <ul>
 <li>AWS Management Console에 로그인 한 뒤 <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId" target="_blank">EC2 Instance Console</a>에 접속 합니다.</li>
 <li><strong>HANA-HDB-Secondary</strong> 인스턴스를 선택하고, <strong>Action</strong>을 선택하고, <strong>Connect</strong>을 선택 합니다.
-<img src="../../images/lab5/lab5-4/images/03-01.png" alt="image03-01"></li>
+<img src="../../images/lab5/lab5-4/images/18.png" alt="image03-01"></li>
 <li><strong>Session Manager</strong> 를 선택하고, <strong>Connect</strong> 버튼을 누릅니다.
 <img src="../../images/lab5/lab5-4/images/04.png" alt="image04"></li>
 </ul>
