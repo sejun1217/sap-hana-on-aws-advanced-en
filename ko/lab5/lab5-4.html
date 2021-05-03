@@ -916,7 +916,7 @@ cat /usr/sap/HDB/SYS/global/hdb/custom/config/global.ini
 </li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
-crm_mon -rfn1
+crm_mon -rfn
 </code></pre></div><p><img src="../../images/lab5/lab5-4/images/11.png" alt="image11"></p>
 <ul>
 <li>sechana에서, HSR 상태를 체크하여 prihana status가 <strong>SOK</strong> 인지 확인 합니다.</li>
@@ -930,7 +930,7 @@ crm_mon -rfn1
 </code></pre></div><ul>
 <li>prihana의 HDB HANA 리소스가 <strong>Master</strong> 로 전환되었는지 확인합니다.</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crm_mon -rfn1
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crm_mon -rfn
 </code></pre></div><p><img src="../../images/lab5/lab5-4/images/13.png" alt="image13"></p>
 <ul>
 <li>sechana에서 hdbadm 유저로 스위치 후, VI 편집기를 이용하여 global.ini 원복 합니다.</li>
@@ -954,7 +954,7 @@ crm node online sechana
 </code></pre></div><ul>
 <li>sechana의 HDB HANA 리소스가 <strong>Slave</strong> 로 전환되고, QAS HANA 리소스가 <strong>Started</strong> 되었는지 확인합니다.</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crm_mon -rfn1
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crm_mon -rfn
 </code></pre></div><p><img src="../../images/lab5/lab5-4/images/15.png" alt="image15"></p>
 <ul>
 <li>HSR 상태를 체크하여 sechana status가 <strong>SOK</strong> 인지 확인 합니다.</li>

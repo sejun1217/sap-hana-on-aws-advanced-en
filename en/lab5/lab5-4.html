@@ -827,7 +827,7 @@
 </ol>
 <ul>
 <li>
-<p>Connect to <strong>sechana</strong> through Session Manager.</p>
+<p>Connect to <strong>prihana</strong> through Session Manager.</p>
 <ul>
 <li>
 <p>After log in AWS Management Console, connect to <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId" target="_blank">EC2 Instance Console</a></p>
@@ -916,7 +916,7 @@ cat /usr/sap/HDB/SYS/global/hdb/custom/config/global.ini
 </li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
-crm_mon -rfn1
+crm_mon -rfn
 </code></pre></div><p><img src="lab5-4/images/11.png" alt="image11"></p>
 <ul>
 <li>On sechana node, Check HSR status to verify if prihana status is <strong>SOK</strong>.</li>
@@ -930,7 +930,7 @@ crm_mon -rfn1
 </code></pre></div><ul>
 <li>Verify prihana&rsquo;s HDB HANA resource has been switched to <strong>Master</strong>.</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crm_mon -rfn1
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crm_mon -rfn
 </code></pre></div><p><img src="lab5-4/images/13.png" alt="image13"></p>
 <ul>
 <li>After switching to <strong>hdbadm</strong> user in <strong>sechana</strong> node, restore global.ini using VI editor.</li>
