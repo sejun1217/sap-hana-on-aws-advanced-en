@@ -948,8 +948,8 @@ stonith -t external/ec2 profile<span style="color:#f92672">=</span>cluster port<
 crm configure show res_AWS_IP
 </code></pre></div><ul>
 <li><strong>{VIRTUAL-IPV4-ADDRESS}</strong> : 192.168.1.99 : VIP of HANA DB Cluster</li>
-<li><strong>{AWS-ROUTE-TABLE}</strong> : The AWS route table ID for the overlay IP address. This is different for every lab user, so make sure to check and change it.</li>
-<li><strong>AWS-PROFILE}</strong> : cluster : Use the default and, if necessary, replace it with a different profile name.</li>
+<li><strong>{AWS-ROUTE-TABLE}</strong> : The AWS route table ID for the overlay IP address to be reached from prihana host. You can get this by navigating to SAP-HANA-HA* VPC, then to Private subnet 1, then to Route table.</li>
+<li><strong>{AWS-PROFILE}</strong> : cluster : Use the default and, if necessary, replace it with a different profile name.</li>
 </ul>
 <ol>
 <li>
@@ -967,7 +967,7 @@ OCF_RESKEY_address<span style="color:#f92672">=</span>192.168.1.99 <span style="
 <li>
 <p>You can also check the IP configured in Linux with the following command (using root user)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ip address show
-</code></pre></div><p><img src="lab4-4/images/05-09.png" alt="image05-09"></p>
+</code></pre></div><p><img src="lab4-4/images/05-11.png" alt="image05-11"></p>
 </li>
 <li>
 <p>Check the IP on a node that is not being tested. (e.g if you are currently testing overlay IPs on prihana, check with sechana)</p>

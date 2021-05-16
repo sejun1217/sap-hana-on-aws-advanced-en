@@ -928,14 +928,14 @@ You can see that Bastion Host (Windows Sever 2019) was created on Custom VPC-Pub
 <li>Connect to <a href="https://console.aws.amazon.com/vpc/home?region=us-east-1#RouteTables:sort=routeTableId" target="_blank">Route Tables Console</a></li>
 <li>Firstly, update the route table of HANA DB Instance. Choose <strong>Private subnet route table</strong> and select <strong>Routes</strong> tab. then  click <strong>Edit routes</strong>.
 <img src="lab2-2/images/03-18.png" alt="image03-18"></li>
-<li>Click <strong>Add routes</strong> and enter Destination as <strong>10.0.0.0/16</strong>, then choose Target as <strong>Transit Gateway</strong>.</li>
+<li>Click <strong>Add routes</strong> and enter Destination as <strong>10.1.0.0/16</strong>, then choose Target as <strong>Transit Gateway</strong>.</li>
 <li>Choose <strong>HANA-TGW</strong> and click <strong>Save routes</strong>.
 <img src="lab2-2/images/03-19.png" alt="image03-19">
 <img src="lab2-2/images/03-20.png" alt="image03-20"></li>
 <li>Click <strong>Close</strong>.</li>
 <li>Next, update the route table of Bastion Host. Choose <strong>Custom Public Routes</strong> and select <strong>Routes</strong> tab, then click <strong>Edit routes</strong>.
 <img src="lab2-2/images/03-21.png" alt="image03-21"></li>
-<li>Click <strong>Add routes</strong> and enter Destination as <strong>10.1.0.0/16</strong>, then choose Target as <strong>Transit Gateway</strong>. Choose <strong>HANA-TGW</strong></li>
+<li>Click <strong>Add routes</strong> and enter Destination as <strong>10.0.0.0/16</strong>, then choose Target as <strong>Transit Gateway</strong>. Choose <strong>HANA-TGW</strong></li>
 <li>Click <strong>Add routes</strong> again, enter Destination as <strong>192.168.1.99/32</strong>, then choose Target as <strong>Transit Gateway</strong>. Choose <strong>HANA-TGW</strong></li>
 <li>Confirm both routes are registered and click <strong>Save routes</strong>.
 <img src="lab2-2/images/03-22.png" alt="image03-22"></li>
