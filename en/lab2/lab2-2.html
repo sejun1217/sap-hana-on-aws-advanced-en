@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<html lang="en" class="js csstransforms3d">
+<head>
+  <meta charset="utf-8">
+  <meta property="og:title" content="SAP HANA on AWS Advanced WorkShop" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="generator" content="Hugo 0.74.3" />
+  <meta name="description" content="SAP HANA on AWS Advanced WorkShop">
+<meta name="author" content="Amazon AWS">
+
+  <link rel="shortcut icon" href="https://a0.awsstatic.com/libra-css/images/site/fav/favicon.ico" type="image/ico" />
+<link rel="icon" href="https://a0.awsstatic.com/libra-css/images/site/fav/favicon.ico" type="image/ico" />
+
+  <title>Task 02. Connect to Overlay IP :: SAP HANA on AWS Advanced WorkShop</title>
+
+  
+  <link href="../../css/nucleus.css" rel="stylesheet">
+  <link href="../../css/fontawesome-all.min.css" rel="stylesheet">
+  <link href="../../css/hybrid.css" rel="stylesheet">
+  <link href="../../css/featherlight.min.css" rel="stylesheet">
+  <link href="../../css/perfect-scrollbar.min.css" rel="stylesheet">
+  <link href="../../css/auto-complete.css" rel="stylesheet">
+  <link href="../../css/atom-one-dark-reasonable.css" rel="stylesheet">
+  <link href="../../css/theme.css" rel="stylesheet">
+  <link href="../../css/hugo-theme.css" rel="stylesheet">
+  
+  <link href="../../css/theme-aws.css" rel="stylesheet">
+  
+
+  <script src="../../js/jquery-3.3.1.min.js"></script>
+
+  <style>
+    :root #header + #content > #left > #rlblock_left{
+        display:none !important;
+    }
+    
+      :not(pre) > code + span.copy-to-clipboard {
+          display: none;
+      }
+    
+  </style>
+  
+</head>
+
+<body class="" data-url="../../en/lab2/lab2-2.html">
+  <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <div>
+    <a href="../../" title="Go home">
+        <img style="vertical-align:middle" src="../../images/logo.png" height="70px" />
+    </a>
+</div>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../../js/lunr.min.js"></script>
+<script type="text/javascript" src="../../js/auto-complete.js"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/en";
+    
+</script>
+<script type="text/javascript" src="../../js/search.js"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/intro.html" title="Introduction" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/intro.html">
+          <b>1. </b>Introduction
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab1.html" title="Lab 01. Setup Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab1.html">
+          <b>2. </b>Lab 01. Setup Cluster
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab1/lab1-1.html" title="Task 01. SAP HANA Quick Starts" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab1/lab1-1.html">
+          <b> </b>Task 01. SAP HANA Quick Starts
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab2.html" title="Lab 02. Monitor Cluster" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="../../en/lab2.html">
+          <b>3. </b>Lab 02. Monitor Cluster
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab2/lab2-1.html" title="Task 01. Verify Created Resources" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab2/lab2-1.html">
+          <b> </b>Task 01. Verify Created Resources
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab2/lab2-2.html" title="Task 02. Connect to Overlay IP" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="../../en/lab2/lab2-2.html">
+          <b> </b>Task 02. Connect to Overlay IP
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab2/lab2-3.html" title="Task 03. HAWK(High Availability Web Konsole)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab2/lab2-3.html">
+          <b> </b>Task 03. HAWK(High Availability Web Konsole)
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab3.html" title="Lab 03. Test Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab3.html">
+          <b>4. </b>Lab 03. Test Cluster
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab3/db.html" title="Database Server" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab3/db.html">
+          <b>4.1 </b>Database Server
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab3/db/lab3-1.html" title="Task 01. Verify Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab3/db/lab3-1.html">
+          <b> </b>Task 01. Verify Cluster
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab3/db/lab3-2.html" title="Task 02. Stop Database" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab3/db/lab3-2.html">
+          <b>  </b>Task 02. Stop Database
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab3/db/lab3-3.html" title="Task 03. Crash Database" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab3/db/lab3-3.html">
+          <b> </b>Task 03. Crash Database
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab3/db/lab3-4.html" title="Task 04. Crash System" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab3/db/lab3-4.html">
+          <b> </b>Task 04. Crash System
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab3/ap.html" title="Application Server" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab3/ap.html">
+          <b>4.2 </b>Application Server
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab3/ap/lab3-ap-1.html" title="Task 01. Verify Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab3/ap/lab3-ap-1.html">
+          <b> </b>Task 01. Verify Cluster
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab3/ap/lab3-ap-2.html" title="Task 02. Migrate ASCS" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab3/ap/lab3-ap-2.html">
+          <b>  </b>Task 02. Migrate ASCS
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab3/ap/lab3-ap-3.html" title="Task 03. Crash System" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab3/ap/lab3-ap-3.html">
+          <b>  </b>Task 03. Crash System
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab4.html" title="Lab 04. Admin Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab4.html">
+          <b>5. </b>Lab 04. Admin Cluster
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab4/lab4-1.html" title="Task 01. Migrate Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab4/lab4-1.html">
+          <b> </b>Task 01. Migrate Cluster
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab4/lab4-2.html" title="Task 02. Take a node offline" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab4/lab4-2.html">
+          <b> </b>Task 02. Take a node offline
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab4/lab4-3.html" title="Task 03. Perform SAP HANA System Replica" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab4/lab4-3.html">
+          <b> </b>Task 03. Perform SAP HANA System Replica
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab4/lab4-4.html" title="Task 04. Test Resource Agent" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab4/lab4-4.html">
+          <b> </b>Task 04. Test Resource Agent
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab4/lab4-5.html" title="Task 05 - Upgrade Cluster Software(Optional)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab4/lab4-5.html">
+          <b> </b>Task 05 - Upgrade Cluster Software(Optional)
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab5.html" title="Lab 05. Change to Cost Optimized Scenario" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab5.html">
+          <b>6. </b>Lab 05. Change to Cost Optimized Scenario
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab5/lab5-1.html" title="Task 01. Change HANA HSR Config" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab5/lab5-1.html">
+          <b> </b>Task 01. Change HANA HSR Config
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab5/lab5-2.html" title="Task 02. Install SAP HANA DATABASE (QAS)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab5/lab5-2.html">
+          <b> </b>Task 02. Install SAP HANA DATABASE (QAS)
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab5/lab5-3.html" title="Task 03. Change Config of the Cluster for QAS system" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab5/lab5-3.html">
+          <b> </b>Task 03. Change Config of the Cluster for QAS system
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab5/lab5-4.html" title="Task 04. Test Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab5/lab5-4.html">
+          <b> </b>Task 04. Test Cluster
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/en/lab2/lab2-2.html" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="ko" value="/ko/lab2/lab2-2.html">한국어</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+
+    <a href="https://aws.amazon.com/privacy/?nc1=f_pr">Privacy</a> | <a href="https://aws.amazon.com/terms/?nc1=f_pr">Site Terms</a> | © 2020, Amazon Web Services, Inc. or its affiliates. All rights reserved. 
+
+</left>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+  <section id="body">
+    <div id="overlay"></div>
+    <div class="padding highlightable">
+      
+      <div>
+        <div id="top-bar">
+          
+          
+          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                <i class="fa fa-bars"></i>
+              </a>
+            </span>
+            
+            <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+            
+            <span class="links">
+              
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href='../../en/'>Home</a> > <a href='../../en/lab2.html'>Lab 02. Monitor Cluster</a> > Task 02. Connect to Overlay IP
+          
+          
+          
+          
+          
+          
+            </span>
+          </div>
+          
+          <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+          
+        </div>
+      </div>
+      
+
+      
+        <div id="body-inner">
+          <h1>Task 02. Connect to Overlay IP</h1>
+          
+          
+
+
+
+	
+<div class="notices note" ><p>When configuring High Availability Cluster in Multi-AZ environment, VIP used by Application Server and HANA Database use <strong>Overlay IP</strong> outside of VPC CIDR. <strong>Transit Gateway</strong> can be used to access this in other VPCs or OnPremise environment.
+In this Lab, you are going to create a Custom VPC through CloudFormation, set up a transit gateway, and connect to HANA Database&rsquo;s Overlay IP through Bastion Host.</p>
+</div>
+
+<p>This task consists of 5 steps.</p>
+<ul>
+<li>Create a Custom VPC and a Bastion Host using CloudFormation</li>
+<li>Create and configure a Transit Gateway</li>
+<li>Update route table of subnet with HANA Instances</li>
+<li>Update Security Group for HANA Instance</li>
+<li>Test Overlay IP connection at Bastion Host</li>
+</ul>
+<hr>
+<h4 id="create-a-custom-vpc-and-a-bastion-host-using-cloudformation">Create a Custom VPC and a Bastion Host using CloudFormation</h4>
+<ol>
+<li>After log in to AWS Management Console, Connect to <a href="https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://cloudformation-template-sejun.s3.ap-northeast-2.amazonaws.com/SAPHANAonAWSAdvanced.yaml&amp;stackName=CustomVPC" target="_blank">CloudFormation for Customer VPC</a></li>
+<li>If <strong>Network Configuration</strong> setting does not overlap with the existing one, the default setting is used.
+<img src="lab2-2/images/03-01.png" alt="image03-01"></li>
+<li>Check two checkboxes of <strong>Capabilities</strong> at the bottom of the screen and click <strong>Create stack</strong>.
+<img src="lab2-2/images/03-02.png" alt="image03-02"></li>
+<li><strong>CustomVPC</strong> stack has been created. Wait until the Status changes <strong>CREATE_COMPLTE</strong>.
+<img src="lab2-2/images/03-03.png" alt="image03-03"></li>
+<li>Connect to <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId" target="_blank">EC2 Instance Console</a>.
+You can see that Bastion Host (Windows Sever 2019) was created on Custom VPC-Public Subnet.
+<img src="lab2-2/images/03-04.png" alt="image03-04"></li>
+</ol>
+<hr>
+<h4 id="create-and-configure-a-transit-gateway">Create and configure a Transit Gateway</h4>
+<p>Create a transit gateway to associate SAP HANA VPC and Custom VPC.</p>
+<ol>
+<li>
+<p>Connect to <a href="https://console.aws.amazon.com/vpc/home?region=us-east-1#TransitGateways:sort=transitGatewayId" target="_blank">Transit Gateways Console</a>, create a transit gateway, and associate SAP HANA VPC and Custom VPC. then register the entry for connecting the Overlay IP to Routing Table on Transit Gateway.</p>
+</li>
+<li>
+<p>Click <strong>Create Transit Gateway</strong>.
+<img src="lab2-2/images/03-05.png" alt="image03-05"></p>
+</li>
+<li>
+<p>Enter <strong>HANA-TGW</strong> in Name Tag, Click <strong>Create Transit Gateway</strong>. then click <strong>Close</strong>.
+<img src="lab2-2/images/03-06.png" alt="image03-06"></p>
+</li>
+<li>
+<p>Wait until the State of <strong>HANA-TGW</strong> you just created changes <strong>available</strong>.
+<img src="lab2-2/images/03-07.png" alt="image03-07"></p>
+</li>
+<li>
+<p>To attach SAP HANA VPC and Custom VPC, Connect to <a href="https://console.aws.amazon.com/vpc/home?region=us-east-1#TransitGatewayAttachments:sort=transitGatewayAttachmentId" target="_blank">Transit Gateways Attachment Console</a>. Click <strong>Create Transit Gateway Attachment</strong>.
+<img src="lab2-2/images/03-08.png" alt="image03-08"></p>
+</li>
+<li>
+<p>Select created <strong>HANA-TGW</strong>, and enter <strong>HANA VPC</strong> as Attachment name tag. Choose a VPC ID that starts with <strong>SAP-HANA</strong>.
+<img src="lab2-2/images/03-09.png" alt="image03-09"></p>
+</li>
+<li>
+<p>Select Subnet ID as <strong>Private Subnet 1,2</strong> and click the <strong>Create attachment</strong> at the bottom right. Click the <strong>Close</strong>.
+<img src="lab2-2/images/03-10-01.png" alt="image03-10-01"></p>
+</li>
+<li>
+<p>Click <strong>Create Transit Gateway Attachment</strong> again.
+<img src="lab2-2/images/03-11.png" alt="image03-11"></p>
+</li>
+<li>
+<p>Similarly, select <strong>HANA-TGW</strong>, and enter <strong>Custom VPC</strong> as Attachment name tag. Select <strong>Custom</strong> as VPC ID.
+<img src="lab2-2/images/03-12.png" alt="image03-12"></p>
+</li>
+<li>
+<p>Select Subnet ID as <strong>Custom Public Subnet AZ1, AZ2</strong>, and click <strong>Create attachment</strong> at the bottom right. Click <strong>Close</strong> button
+<img src="lab2-2/images/03-13-01.png" alt="image03-13-01"></p>
+</li>
+<li>
+<p>Wait for both attachments to change <strong>State</strong> as <strong>available</strong> (After a certain period of time, click the Refresh button to check the State.)
+<img src="lab2-2/images/03-14.png" alt="image03-14"></p>
+</li>
+<li>
+<p>Connect to <a href="https://console.aws.amazon.com/vpc/home?region=us-east-1#TransitGatewayRouteTables:sort=transitGatewayRouteTableId" target="_blank">Transit Gateways Route Tables Console</a> and register the routing for Overlay IP.</p>
+</li>
+<li>
+<p>Select created route table and select <strong>Routes</strong> tab, then click <strong>Create static route</strong>
+<img src="lab2-2/images/03-15.png" alt="image03-15"></p>
+</li>
+<li>
+<p>For CIDR option, enter <strong>192.168.1.99/32</strong>.</p>
+</li>
+<li>
+<p>For Choose attachment option, choose <strong>HANA VPC</strong> and click <strong>Create static route</strong>.
+<img src="lab2-2/images/03-16.png" alt="image03-16"></p>
+</li>
+<li>
+<p>Click <strong>Close</strong>.</p>
+</li>
+<li>
+<p>You can check that static route for Overlay IP is registered.
+<img src="lab2-2/images/03-17.png" alt="image03-17"></p>
+</li>
+</ol>
+<hr>
+<h4 id="update-instance-route-table">Update Instance route table</h4>
+<p>Updated each route table so that HANA DB Instance and Bastion Host can communicate with each other through Transit Gateway.</p>
+<ol>
+<li>Connect to <a href="https://console.aws.amazon.com/vpc/home?region=us-east-1#RouteTables:sort=routeTableId" target="_blank">Route Tables Console</a></li>
+<li>Firstly, update the route table of HANA DB Instance. Choose <strong>Private subnet route table</strong> and select <strong>Routes</strong> tab. then  click <strong>Edit routes</strong>.
+<img src="lab2-2/images/03-18.png" alt="image03-18"></li>
+<li>Click <strong>Add routes</strong> and enter Destination as <strong>10.1.0.0/16</strong>, then choose Target as <strong>Transit Gateway</strong>.</li>
+<li>Choose <strong>HANA-TGW</strong> and click <strong>Save routes</strong>.
+<img src="lab2-2/images/03-19.png" alt="image03-19">
+<img src="lab2-2/images/03-20.png" alt="image03-20"></li>
+<li>Click <strong>Close</strong>.</li>
+<li>Next, update the route table of Bastion Host. Choose <strong>Custom Public Routes</strong> and select <strong>Routes</strong> tab, then click <strong>Edit routes</strong>.
+<img src="lab2-2/images/03-21.png" alt="image03-21"></li>
+<li>Click <strong>Add routes</strong> and enter Destination as <strong>10.0.0.0/16</strong>, then choose Target as <strong>Transit Gateway</strong>. Choose <strong>HANA-TGW</strong></li>
+<li>Click <strong>Add routes</strong> again, enter Destination as <strong>192.168.1.99/32</strong>, then choose Target as <strong>Transit Gateway</strong>. Choose <strong>HANA-TGW</strong></li>
+<li>Confirm both routes are registered and click <strong>Save routes</strong>.
+<img src="lab2-2/images/03-22.png" alt="image03-22"></li>
+<li>Click <strong>Close</strong>.</li>
+</ol>
+<hr>
+<h4 id="update-instance-security-group">Update Instance Security Group</h4>
+<p>Allows inbound traffic for Bastion Host to the Security Group of Primary and Secondary HANA DB Instances.</p>
+<ol>
+<li>First, check Bastion Host IP. Connect to <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId" target="_blank">EC2 Instance Console</a>. Check the Private IP of <strong>Custom Bastion Host</strong> (e.g 10.1.3.154)
+<img src="lab2-2/images/03-23.png" alt="image03-23"></li>
+<li>Update Primary instance. Choose <strong>HANA-HDB-Primary</strong> instance and click Security Groups link below.
+<img src="lab2-2/images/03-24.png" alt="image03-24"></li>
+<li>Select <strong>Inbound rules</strong> tab at the bottom and click <strong>Edit inbound rules</strong>.
+<img src="lab2-2/images/03-25.png" alt="image03-25"></li>
+<li>Click <strong>Add rule</strong> at the bottom, select <strong>All traffic</strong> as Type, and enter the CIDR of Bastion Host found above(e.g 10.1.3.154/32)
+<ul>
+<li>Because it is a lab environment, Bastion Host is allowed with All traffic. It is recommended to allow only the necessary ports in a real environment.
+<img src="lab2-2/images/03-26.png" alt="image03-26"></li>
+</ul>
+</li>
+<li>Click <strong>Save rules</strong> at the bottom.</li>
+<li>Same as Primary Instance, update Security Group for Secondary Instance. Connect to <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId" target="_blank">EC2 Instance Console</a>.</li>
+<li>Choose <strong>HANA-HDB-Secondary</strong> instance and click the Security Groups link.
+<img src="lab2-2/images/03-27.png" alt="image03-27"></li>
+<li>Select <strong>Inbound rules</strong> tab at the bottom and click <strong>Edit inbound rules</strong>.</li>
+<li>Click <strong>Add rule</strong> at the bottom, select <strong>All traffic</strong> as Type, and enter the CIDR of Bastion Host found above(e.g 10.1.3.154/32)
+<ul>
+<li>Because it is a lab environment, Bastion Host is allowed with All traffic. It is recommended to allow only the necessary ports in a real environment.
+<img src="lab2-2/images/03-26.png" alt="image03-26"></li>
+</ul>
+</li>
+<li>Click <strong>Save rules</strong> at the bottom.</li>
+</ol>
+<hr>
+<h4 id="connect-to-bastion-host-and-test-overlay-ip">Connect to Bastion Host and Test Overlay IP</h4>
+<p>Connect to Bastion Host and perform a ping test to see if it is possible to connect to the Overlay IP.</p>
+<ol>
+<li>Connect to <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId" target="_blank">EC2 Instance Console</a> and check the Public IP of <strong>Custom Bastion Host</strong>. (e.g 35.173.137.37)
+<img src="lab2-2/images/03-28.png" alt="image03-28"></li>
+<li>Choose <strong>Custom Bastion Host</strong> and click <strong>Connect</strong>.
+<img src="lab2-2/images/03-29.png" alt="image03-29"></li>
+<li>Click <strong>Get Password</strong>.
+<img src="lab2-2/images/03-30.png" alt="image03-30"></li>
+<li>Click <strong>Select File</strong> and select <strong>SAP-ImmersionDay-Lab.pem</strong> file saved in Lab01.
+<ul>
+<li>The screen below may look different depending on the OS. The screenshot below is a MacBook screen.
+<img src="lab2-2/images/03-31.png" alt="image03-31">
+<img src="lab2-2/images/03-32.png" alt="image03-32"></li>
+</ul>
+</li>
+<li>Click <strong>Decrypt Password</strong> to confirm Administrator Password.(e.g qRPIUIXXSI5ceUhLuntol%WhZ&amp;WFzCT$)
+<img src="lab2-2/images/03-33.png" alt="image03-33">
+<img src="lab2-2/images/03-34.png" alt="image03-34"></li>
+<li>Click <strong>Close</strong>.</li>
+<li>Connect to Bastion Host using a remote access program.
+<ul>
+<li><a href="https://www.soft2000.com/12664" target="_blank">Refer to remote access method in Windows OS</a></li>
+<li><a href="https://kimsungjin.tistory.com/227" target="_blank">Refer to remote access method in MAC OS</a></li>
+</ul>
+</li>
+<li>When connected successfully, search for <strong>Windows PowerShell</strong> in the Search window and run it.
+<img src="lab2-2/images/03-35.png" alt="image03-35"></li>
+<li>When PowerShell is launched, execute <strong>ping 192.168.1.99</strong> to check if communication with Overlay IP is possible.
+<img src="lab2-2/images/03-36.png" alt="image03-36"></li>
+</ol>
+
+<div class="notices warning" ><p><em><strong>Shut down the PowerShell and proceed with Task03 while maintaining the remote connection.</strong></em></p>
+</div>
+
+<hr>
+<p align="center">
+© 2020, Amazon Web Services, Inc. or its affiliates. All rights reserved.
+</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../en/lab2/lab2-1.html" title="Task 01. Verify Created Resources"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../en/lab2/lab2-3.html" title="Task 03. HAWK(High Availability Web Konsole)" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../../js/clipboard.min.js"></script>
+    <script src="../../js/perfect-scrollbar.min.js"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="../../js/jquery.sticky.js"></script>
+    <script src="../../js/featherlight.min.js"></script>
+    <script src="../../js/html5shiv-printshiv.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../js/modernizr.custom-3.6.0.js"></script>
+    <script src="../../js/learn.js"></script>
+    <script src="../../js/hugo-learn.js"></script>
+
+    <link href="../../mermaid/mermaid.css" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>

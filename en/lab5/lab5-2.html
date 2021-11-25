@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<html lang="en" class="js csstransforms3d">
+<head>
+  <meta charset="utf-8">
+  <meta property="og:title" content="SAP HANA on AWS Advanced WorkShop" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="generator" content="Hugo 0.74.3" />
+  <meta name="description" content="SAP HANA on AWS Advanced WorkShop">
+<meta name="author" content="Amazon AWS">
+
+  <link rel="shortcut icon" href="https://a0.awsstatic.com/libra-css/images/site/fav/favicon.ico" type="image/ico" />
+<link rel="icon" href="https://a0.awsstatic.com/libra-css/images/site/fav/favicon.ico" type="image/ico" />
+
+  <title>Task 02. Install SAP HANA DATABASE (QAS) :: SAP HANA on AWS Advanced WorkShop</title>
+
+  
+  <link href="../../css/nucleus.css" rel="stylesheet">
+  <link href="../../css/fontawesome-all.min.css" rel="stylesheet">
+  <link href="../../css/hybrid.css" rel="stylesheet">
+  <link href="../../css/featherlight.min.css" rel="stylesheet">
+  <link href="../../css/perfect-scrollbar.min.css" rel="stylesheet">
+  <link href="../../css/auto-complete.css" rel="stylesheet">
+  <link href="../../css/atom-one-dark-reasonable.css" rel="stylesheet">
+  <link href="../../css/theme.css" rel="stylesheet">
+  <link href="../../css/hugo-theme.css" rel="stylesheet">
+  
+  <link href="../../css/theme-aws.css" rel="stylesheet">
+  
+
+  <script src="../../js/jquery-3.3.1.min.js"></script>
+
+  <style>
+    :root #header + #content > #left > #rlblock_left{
+        display:none !important;
+    }
+    
+      :not(pre) > code + span.copy-to-clipboard {
+          display: none;
+      }
+    
+  </style>
+  
+</head>
+
+<body class="" data-url="../../en/lab5/lab5-2.html">
+  <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <div>
+    <a href="../../" title="Go home">
+        <img style="vertical-align:middle" src="../../images/logo.png" height="70px" />
+    </a>
+</div>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../../js/lunr.min.js"></script>
+<script type="text/javascript" src="../../js/auto-complete.js"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/en";
+    
+</script>
+<script type="text/javascript" src="../../js/search.js"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/intro.html" title="Introduction" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/intro.html">
+          <b>1. </b>Introduction
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab1.html" title="Lab 01. Setup Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab1.html">
+          <b>2. </b>Lab 01. Setup Cluster
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab1/lab1-1.html" title="Task 01. SAP HANA Quick Starts" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab1/lab1-1.html">
+          <b> </b>Task 01. SAP HANA Quick Starts
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab2.html" title="Lab 02. Monitor Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab2.html">
+          <b>3. </b>Lab 02. Monitor Cluster
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab2/lab2-1.html" title="Task 01. Verify Created Resources" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab2/lab2-1.html">
+          <b> </b>Task 01. Verify Created Resources
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab2/lab2-2.html" title="Task 02. Connect to Overlay IP" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab2/lab2-2.html">
+          <b> </b>Task 02. Connect to Overlay IP
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab2/lab2-3.html" title="Task 03. HAWK(High Availability Web Konsole)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab2/lab2-3.html">
+          <b> </b>Task 03. HAWK(High Availability Web Konsole)
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab3.html" title="Lab 03. Test Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab3.html">
+          <b>4. </b>Lab 03. Test Cluster
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab3/db.html" title="Database Server" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab3/db.html">
+          <b>4.1 </b>Database Server
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab3/db/lab3-1.html" title="Task 01. Verify Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab3/db/lab3-1.html">
+          <b> </b>Task 01. Verify Cluster
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab3/db/lab3-2.html" title="Task 02. Stop Database" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab3/db/lab3-2.html">
+          <b>  </b>Task 02. Stop Database
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab3/db/lab3-3.html" title="Task 03. Crash Database" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab3/db/lab3-3.html">
+          <b> </b>Task 03. Crash Database
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab3/db/lab3-4.html" title="Task 04. Crash System" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab3/db/lab3-4.html">
+          <b> </b>Task 04. Crash System
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab3/ap.html" title="Application Server" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab3/ap.html">
+          <b>4.2 </b>Application Server
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab3/ap/lab3-ap-1.html" title="Task 01. Verify Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab3/ap/lab3-ap-1.html">
+          <b> </b>Task 01. Verify Cluster
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab3/ap/lab3-ap-2.html" title="Task 02. Migrate ASCS" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab3/ap/lab3-ap-2.html">
+          <b>  </b>Task 02. Migrate ASCS
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab3/ap/lab3-ap-3.html" title="Task 03. Crash System" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab3/ap/lab3-ap-3.html">
+          <b>  </b>Task 03. Crash System
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab4.html" title="Lab 04. Admin Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab4.html">
+          <b>5. </b>Lab 04. Admin Cluster
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab4/lab4-1.html" title="Task 01. Migrate Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab4/lab4-1.html">
+          <b> </b>Task 01. Migrate Cluster
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab4/lab4-2.html" title="Task 02. Take a node offline" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab4/lab4-2.html">
+          <b> </b>Task 02. Take a node offline
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab4/lab4-3.html" title="Task 03. Perform SAP HANA System Replica" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab4/lab4-3.html">
+          <b> </b>Task 03. Perform SAP HANA System Replica
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab4/lab4-4.html" title="Task 04. Test Resource Agent" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab4/lab4-4.html">
+          <b> </b>Task 04. Test Resource Agent
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab4/lab4-5.html" title="Task 05 - Upgrade Cluster Software(Optional)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab4/lab4-5.html">
+          <b> </b>Task 05 - Upgrade Cluster Software(Optional)
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab5.html" title="Lab 05. Change to Cost Optimized Scenario" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="../../en/lab5.html">
+          <b>6. </b>Lab 05. Change to Cost Optimized Scenario
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab5/lab5-1.html" title="Task 01. Change HANA HSR Config" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab5/lab5-1.html">
+          <b> </b>Task 01. Change HANA HSR Config
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab5/lab5-2.html" title="Task 02. Install SAP HANA DATABASE (QAS)" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="../../en/lab5/lab5-2.html">
+          <b> </b>Task 02. Install SAP HANA DATABASE (QAS)
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab5/lab5-3.html" title="Task 03. Change Config of the Cluster for QAS system" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab5/lab5-3.html">
+          <b> </b>Task 03. Change Config of the Cluster for QAS system
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/lab5/lab5-4.html" title="Task 04. Test Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../en/lab5/lab5-4.html">
+          <b> </b>Task 04. Test Cluster
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/en/lab5/lab5-2.html" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="ko" value="/ko/lab5/lab5-2.html">한국어</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+
+    <a href="https://aws.amazon.com/privacy/?nc1=f_pr">Privacy</a> | <a href="https://aws.amazon.com/terms/?nc1=f_pr">Site Terms</a> | © 2020, Amazon Web Services, Inc. or its affiliates. All rights reserved. 
+
+</left>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+  <section id="body">
+    <div id="overlay"></div>
+    <div class="padding highlightable">
+      
+      <div>
+        <div id="top-bar">
+          
+          
+          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                <i class="fa fa-bars"></i>
+              </a>
+            </span>
+            
+            <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+            
+            <span class="links">
+              
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href='../../en/'>Home</a> > <a href='../../en/lab5.html'>Lab 05. Change to Cost Optimized Scenario</a> > Task 02. Install SAP HANA DATABASE (QAS)
+          
+          
+          
+          
+          
+          
+            </span>
+          </div>
+          
+          <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents"></nav>
+    </div>
+</div>
+
+          
+        </div>
+      </div>
+      
+
+      
+        <div id="body-inner">
+          <h1>Task 02. Install SAP HANA DATABASE (QAS)</h1>
+          
+          
+
+
+
+	
+<div class="notices note" ><p>Let&rsquo;s install QAS(Non-productive) SAP HANA database in sechana. In this Lab, we plan to install only for minimum functional verification. For detailed information related to the installation of HANA DB, please refer to the SAP HANA Administration Guide below.</p>
+</div>
+
+<ul>
+<li><a href="https://help.sap.com/doc/eb75509ab0fd1014a2c6ba9b6d252832/2.0.03/en-US/SAP_HANA_Administration_Guide_en.pdf" target="_blank">SAP HANA Administration Guide</a></li>
+</ul>
+<hr>
+<ol>
+<li>
+<p>Connect to sechana through Session Manager.</p>
+<ul>
+<li>Connect to <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId" target="_blank">EC2 Instance Console</a></li>
+<li>Select <strong>HANA-HDB-Secondary</strong> instance, click <strong>Action</strong>, and click <strong>Connect</strong>.
+<img src="lab5-2/images/03-01.png" alt="image03-01"></li>
+<li>Select <strong>Session Manager</strong> and click <strong>Connect</strong>.
+<img src="lab5-2/images/04.png" alt="image04"></li>
+</ul>
+</li>
+<li>
+<p>Install awscli to download the HANA installation file from S3.</p>
+<ul>
+<li>Please refer to the next link for detailed installation instructions. <a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html" target="_blank">Install the AWS CLI version 2 on Linux</a></li>
+<li>After connecting as root user, install the latest version of the AWS CLI as follows.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+cd /hana/shared
+curl <span style="color:#e6db74">&#34;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip&#34;</span> -o <span style="color:#e6db74">&#34;awscliv2.zip&#34;</span>
+unzip awscliv2.zip
+./aws/install
+</code></pre></div><ul>
+<li>Confirm awscli installation as below</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">aws --version
+</code></pre></div><p><img src="lab5-2/images/05.png" alt="image05"></p>
+</li>
+<li>
+<p>After downloading HANA installation file as follows, extract it.</p>
+<ul>
+<li>Download HANA installation file from S3 URL shared in the lab guide.(e.g s3://sap-immsersionday-hol1/hanadb)</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir -p /hana/shared/hanadb
+cd /hana/shared/hanadb
+aws s3 cp s3://sap-immsersionday-hol1/hanadb . --recursive
+
+</code></pre></div><p><img src="lab5-2/images/06.png" alt="image06"></p>
+<ul>
+<li>Unrar HANA installation file as follows.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">unrar x 51053381_part1.exe
+</code></pre></div><p><img src="lab5-2/images/07.png" alt="image07"></p>
+</li>
+<li>
+<p>Install HANA DB</p>
+<ul>
+<li>
+<p>The main installation options are listed below.</p>
+<ul>
+<li>System ID : <strong>QAS</strong></li>
+<li>Instance Number : <strong>10</strong></li>
+<li>Master Password : <strong>Init12345!</strong></li>
+<li>Restrict maximum memory allocation : <strong>y</strong></li>
+<li>Enter Maximum Memory Allocation in MB [63615]: <strong>32768</strong></li>
+</ul>
+</li>
+<li>
+<p>Install HANA DB using hdblcm.</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd /hana/shared/hanadb/51053381/DATA_UNITS/HDB_LCM_LINUX_X86_64
+./hdblcm
+</code></pre></div><ul>
+<li>
+<p>Enter the installation options as below.</p>
+<ul>
+<li>choose an action[install] : 2
+<img src="lab5-2/images/08.png" alt="image08"></li>
+<li>Select additional components for installation[server] : 2
+<img src="lab5-2/images/09.png" alt="image09"></li>
+<li>Use default settings for Install Path and Host Name, and enter <strong>QAS</strong> for System ID and <strong>10</strong> for Instance Number.
+<img src="lab5-2/images/10.png" alt="image10"></li>
+<li>Select <strong>2</strong> for System usage as test, enter <strong>32769</strong> MB for memory setting and <strong>Init12345!</strong> for password, and use Default setting for the rest.
+<img src="lab5-2/images/11.png" alt="image11"></li>
+<li>Do you want to continue? (y/n) <strong>y</strong>
+<img src="lab5-2/images/12.png" alt="image12"></li>
+</ul>
+</li>
+<li>
+<p>When the installation is complete, you can see the results below.
+<img src="lab5-2/images/13.png" alt="image13"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Check QAS HANA DB installation.</p>
+<ul>
+<li>Switch to qasadm<sidadm> user and check if HDB instance is running normally.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">su - qasadm
+HDB info
+</code></pre></div><p><img src="lab5-2/images/14.png" alt="image14"></p>
+</li>
+</ol>
+<hr>
+<p align="center">
+© 2020, Amazon Web Services, Inc. or its affiliates. All rights reserved.
+</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../en/lab5/lab5-1.html" title="Task 01. Change HANA HSR Config"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../en/lab5/lab5-3.html" title="Task 03. Change Config of the Cluster for QAS system" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../../js/clipboard.min.js"></script>
+    <script src="../../js/perfect-scrollbar.min.js"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="../../js/jquery.sticky.js"></script>
+    <script src="../../js/featherlight.min.js"></script>
+    <script src="../../js/html5shiv-printshiv.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../js/modernizr.custom-3.6.0.js"></script>
+    <script src="../../js/learn.js"></script>
+    <script src="../../js/hugo-learn.js"></script>
+
+    <link href="../../mermaid/mermaid.css" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>

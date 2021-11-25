@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<html lang="ko" class="js csstransforms3d">
+<head>
+  <meta charset="utf-8">
+  <meta property="og:title" content="SAP HANA on AWS Advanced WorkShop" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="generator" content="Hugo 0.74.3" />
+  <meta name="description" content="SAP HANA on AWS Advanced WorkShop">
+<meta name="author" content="Amazon AWS">
+
+  <link rel="shortcut icon" href="https://a0.awsstatic.com/libra-css/images/site/fav/favicon.ico" type="image/ico" />
+<link rel="icon" href="https://a0.awsstatic.com/libra-css/images/site/fav/favicon.ico" type="image/ico" />
+
+  <title>Task 04. Test Resource Agent :: SAP HANA on AWS Advanced WorkShop</title>
+
+  
+  <link href="../../css/nucleus.css" rel="stylesheet">
+  <link href="../../css/fontawesome-all.min.css" rel="stylesheet">
+  <link href="../../css/hybrid.css" rel="stylesheet">
+  <link href="../../css/featherlight.min.css" rel="stylesheet">
+  <link href="../../css/perfect-scrollbar.min.css" rel="stylesheet">
+  <link href="../../css/auto-complete.css" rel="stylesheet">
+  <link href="../../css/atom-one-dark-reasonable.css" rel="stylesheet">
+  <link href="../../css/theme.css" rel="stylesheet">
+  <link href="../../css/hugo-theme.css" rel="stylesheet">
+  
+  <link href="../../css/theme-aws.css" rel="stylesheet">
+  
+
+  <script src="../../js/jquery-3.3.1.min.js"></script>
+
+  <style>
+    :root #header + #content > #left > #rlblock_left{
+        display:none !important;
+    }
+    
+      :not(pre) > code + span.copy-to-clipboard {
+          display: none;
+      }
+    
+  </style>
+  
+</head>
+
+<body class="" data-url="../../ko/lab4/lab4-4.html">
+  <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <div>
+    <a href="../../" title="Go home">
+        <img style="vertical-align:middle" src="../../images/logo.png" height="70px" />
+    </a>
+</div>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../../js/lunr.min.js"></script>
+<script type="text/javascript" src="../../js/auto-complete.js"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/ko";
+    
+</script>
+<script type="text/javascript" src="../../js/search.js"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/intro.html" title="Introduction" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/intro.html">
+          <b>1. </b>Introduction
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab1.html" title="Lab 01. Setup Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab1.html">
+          <b>2. </b>Lab 01. Setup Cluster
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab1/lab1-1.html" title="Task 01. SAP HANA Quick Starts" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab1/lab1-1.html">
+          <b> </b>Task 01. SAP HANA Quick Starts
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab2.html" title="Lab 02. Monitor Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab2.html">
+          <b>3. </b>Lab 02. Monitor Cluster
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab2/lab2-1.html" title="Task 01. Verify Created Resources" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab2/lab2-1.html">
+          <b> </b>Task 01. Verify Created Resources
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab2/lab2-2.html" title="Task 02. Connect to Overlay IP" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab2/lab2-2.html">
+          <b> </b>Task 02. Connect to Overlay IP
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab2/lab2-3.html" title="Task 03. HAWK(High Availability Web Konsole)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab2/lab2-3.html">
+          <b> </b>Task 03. HAWK(High Availability Web Konsole)
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab3.html" title="Lab 03. Test Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab3.html">
+          <b>4. </b>Lab 03. Test Cluster
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab3/ap.html" title="Lab 03. Test Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab3/ap.html">
+          <b>4. </b>Lab 03. Test Cluster
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab3/db.html" title="Lab 03. Test Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab3/db.html">
+          <b>4. </b>Lab 03. Test Cluster
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab3/db/lab3-1.html" title="Task 01. Verify Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab3/db/lab3-1.html">
+          <b> </b>Task 01. Verify Cluster
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab3/db/lab3-2.html" title="Task 02. Stop Database" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab3/db/lab3-2.html">
+          <b>  </b>Task 02. Stop Database
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab3/db/lab3-3.html" title="Task 03. Crash Database" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab3/db/lab3-3.html">
+          <b> </b>Task 03. Crash Database
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab3/db/lab3-4.html" title="Task 04. Crash System" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab3/db/lab3-4.html">
+          <b> </b>Task 04. Crash System
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab4.html" title="Lab 04. Admin Cluster" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="../../ko/lab4.html">
+          <b>5. </b>Lab 04. Admin Cluster
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab4/lab4-1.html" title="Task 01. Migrate Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab4/lab4-1.html">
+          <b> </b>Task 01. Migrate Cluster
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab4/lab4-2.html" title="Task 02. Take a node offline" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab4/lab4-2.html">
+          <b> </b>Task 02. Take a node offline
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab4/lab4-3.html" title="Task 03. Perform SAP HANA System Replica" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab4/lab4-3.html">
+          <b> </b>Task 03. Perform SAP HANA System Replica
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab4/lab4-4.html" title="Task 04. Test Resource Agent" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="../../ko/lab4/lab4-4.html">
+          <b> </b>Task 04. Test Resource Agent
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab4/lab4-5.html" title="Task 05 - Upgrade Cluster Software(Optional)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab4/lab4-5.html">
+          <b> </b>Task 05 - Upgrade Cluster Software(Optional)
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab5.html" title="Lab 05. Change to Cost Optimized Scenario" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab5.html">
+          <b>6. </b>Lab 05. Change to Cost Optimized Scenario
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab5/lab5-1.html" title="Task 01. Change HANA HSR Config" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab5/lab5-1.html">
+          <b> </b>Task 01. Change HANA HSR Config
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab5/lab5-2.html" title="Task 02. Install SAP HANA DATABASE (QAS)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab5/lab5-2.html">
+          <b> </b>Task 02. Install SAP HANA DATABASE (QAS)
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab5/lab5-3.html" title="Task 03. Change Config of the Cluster for QAS system" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab5/lab5-3.html">
+          <b> </b>Task 03. Change Config of the Cluster for QAS system
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/lab5/lab5-4.html" title="Task 04. Test Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../ko/lab5/lab5-4.html">
+          <b> </b>Task 04. Test Cluster
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/en/lab4/lab4-4.html">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="ko" value="/ko/lab4/lab4-4.html" selected>한국어</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+
+    <a href="https://aws.amazon.com/privacy/?nc1=f_pr">Privacy</a> | <a href="https://aws.amazon.com/terms/?nc1=f_pr">Site Terms</a> | © 2020, Amazon Web Services, Inc. or its affiliates. All rights reserved. 
+
+</left>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+  <section id="body">
+    <div id="overlay"></div>
+    <div class="padding highlightable">
+      
+      <div>
+        <div id="top-bar">
+          
+          
+          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                <i class="fa fa-bars"></i>
+              </a>
+            </span>
+            
+            <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+            
+            <span class="links">
+              
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href='../../ko/'>홈</a> > <a href='../../ko/lab4.html'>Lab 04. Admin Cluster</a> > Task 04. Test Resource Agent
+          
+          
+          
+          
+          
+          
+            </span>
+          </div>
+          
+          <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#ha-cluster-중지">HA Cluster 중지</a></li>
+        <li><a href="#ec2-stonith-에이전트-테스트">EC2 Stonith 에이전트 테스트</a></li>
+        <li><a href="#오버레이-ip-에이전트-테스트-aws-vpc-move-ip">오버레이 IP 에이전트 테스트 (aws-vpc-move-ip)</a></li>
+        <li><a href="#ha-cluster-시작">HA Cluster 시작</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+          
+        </div>
+      </div>
+      
+
+      
+        <div id="body-inner">
+          <h1>Task 04. Test Resource Agent</h1>
+          
+          
+
+
+
+	
+<div class="notices note" ><p>클러스터 리소스 에이전트 테스트는 올바른 클러스터 구성을 보장하고 문제를 해결하고 조사하기 위한 클러스터 관리의 중요한 부분입니다. 리소스 에이전트는 노드에 서비스 중단을 일으킬 수 있으므로 실행중인 클러스터 또는 응용 프로그램으로 테스트해서는 안됩니다. 이 테스트를 시작하기 전에 두 노드 모두 클러스터가 중지되었는지 확인하십시오.</p>
+</div>
+
+<h3 id="ha-cluster-중지">HA Cluster 중지</h3>
+<p>Secondary 노드 Cluster (sechana) 중지 확인 후 Primary Node (prihana) Cluster 중지</p>
+<p>Secondary 노드 Cluster (sechana) 중지</p>
+<ol>
+<li>
+<p><a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId" target="_blank">EC2 Instance Console</a>에 접속 합니다.</p>
+</li>
+<li>
+<p><strong>HANA-HDB-Secondary</strong> 인스턴스를 선택하고, <strong>Connect</strong> 버튼을 누릅니다.
+<img src="../../images/lab4/lab4-4/images/01-08-new.png" alt="image01-08"></p>
+</li>
+<li>
+<p><strong>Session Manager</strong> 를 선택하고, <strong>Connect</strong> 버튼을 누릅니다. Session Manager를 통해 <strong>sechana</strong> 인스턴스에 접속합니다.
+<img src="../../images/lab4/lab4-4/images/01-02-new.png" alt="image01-02"></p>
+</li>
+<li>
+<p>sechana Cluster 상태 확인</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+crm cluster status
+</code></pre></div><p><img src="../../images/lab4/lab4-4/images/05-03.png" alt="image05-03"></p>
+</li>
+<li>
+<p>sechana Cluster 중지 (root 유저사용)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+crm cluster stop
+</code></pre></div><p><img src="../../images/lab4/lab4-4/images/05-03-1.png" alt="image05-03-1"></p>
+</li>
+<li>
+<p>sechana Cluster 상태 확인</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+crm cluster status
+</code></pre></div><p><img src="../../images/lab4/lab4-4/images/05-03-2.png" alt="image05-03-2"></p>
+</li>
+</ol>
+<p>Primary Node (prihana) Cluster 중지
+7. <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId" target="_blank">EC2 Instance Console</a>에 접속 합니다.</p>
+<ol start="8">
+<li>
+<p><strong>HANA-HDB-Primary</strong> 인스턴스를 선택하고, <strong>Connect</strong> 버튼을 누릅니다.
+<img src="../../images/lab4/lab4-4/images/01-01-new.png" alt="image01-01"></p>
+</li>
+<li>
+<p><strong>Session Manager</strong> 를 선택하고, <strong>Connect</strong> 버튼을 누릅니다. Session Manager를 통해 <strong>prihana</strong> 인스턴스에 접속합니다.
+<img src="../../images/lab4/lab4-4/images/01-02-new.png" alt="image01-02"></p>
+</li>
+<li>
+<p>Primary node (prihana) Cluster 상태 확인 (root 유저사용)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+crm cluster status
+</code></pre></div><p><img src="../../images/lab4/lab4-4/images/05-02.png" alt="image05-02"></p>
+</li>
+<li>
+<p>prihana Cluster 중지 (root 유저사용)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+crm cluster stop
+</code></pre></div><p><img src="../../images/lab4/lab4-4/images/05-02-1.png" alt="image05-02-1"></p>
+</li>
+<li>
+<p>Primary node (prihana) Cluster 상태 확인 (root 유저사용)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+crm cluster status
+</code></pre></div><p><img src="../../images/lab4/lab4-4/images/05-02-2.png" alt="image05-02-2"></p>
+</li>
+</ol>
+<hr>
+<h3 id="ec2-stonith-에이전트-테스트">EC2 Stonith 에이전트 테스트</h3>
+<p>EC2 Stonith 에이전트를 테스트하면 IAM 정책, AWS CLI 구성 및 EC2 API 엔드 포인트에 대한 연결이 제대로 작동하는지 확인하기 위해 노드 중 하나가 중지됩니다.
+다음과 같은 명령줄에서 상황에 알맞은 매개 변수를 바꿉니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">stonith -t external/ec2 profile<span style="color:#f92672">={</span>AWS-PROFILE<span style="color:#f92672">}</span> port<span style="color:#f92672">={</span>CLUSTER-NODE2<span style="color:#f92672">}</span> tag<span style="color:#f92672">={</span>AWS-TAG-CONTAINING-HOSTNAME<span style="color:#f92672">}</span> -T off <span style="color:#f92672">{</span>CLUSTER-NODE2<span style="color:#f92672">}</span>
+</code></pre></div><p>변수는 아래와 같은 명령으로 확인할 수 있습니다. (root 유저사용)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+crm configure show res_AWS_STONITH
+</code></pre></div><p>사용되는 매개변수는 다음과 같습니다.</p>
+<ul>
+<li><strong>{AWS-PROFILE}</strong> : <strong>cluster</strong> : 기본값을 사용하며 필요한 경우 다른 AWS CLI 프로필 이름으로 바꿉니다.</li>
+<li><strong>{CLUSTER-NODE2}</strong> : <strong>sechana</strong> 또는 <strong>prihana</strong> : 다른 클러스터 노드의 이름 또는 IP 주소입니다.</li>
+<li><strong>{AWS-TAG-CONTAINING-HOSTNAME}</strong> : <strong>PaceTag</strong> : 두 클러스터 노드에 대한 EC2 인스턴스의 태그 이름입니다.</li>
+</ul>
+<ol>
+<li>
+<p>아래 명령은 클러스터 노드 2를 종료합니다. 명령 실행 중에 오류가 발생하여 작동하지 않는 경우 확인합니다.
+Primary Node에서 테스트 (root 유저사용)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+stonith -t external/ec2 profile<span style="color:#f92672">=</span>cluster port<span style="color:#f92672">=</span>sechana tag<span style="color:#f92672">=</span>PaceTag -T off sechana
+</code></pre></div><p><img src="../../images/lab4/lab4-4/images/05-05.png" alt="image05-05"></p>
+</li>
+<li>
+<p><a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId" target="_blank">EC2 Instance Console</a>에 접속하여 sechana 상태를 확인합니다.</p>
+</li>
+<li>
+<p><strong>HANA-HDB-Secondary</strong> 인스턴스가 <strong>stopped</strong> 상태 입니다. <strong>sechana</strong> 를 <strong>Start</strong> 하여 정상 상태인지 확인합니다.
+<img src="../../images/lab4/lab4-4/images/04-21-new.png" alt="image04-21"></p>
+</li>
+<li>
+<p><strong>HANA-HDB-Secondary</strong> 인스턴스를 선택하고, <strong>Action</strong> 버튼을 누릅니다. <strong>Instance State</strong> 에서 <strong>Start</strong> 를 누릅니다. <strong>Yes, Start</strong> 버튼을 누릅니다.
+<img src="../../images/lab4/lab4-4/images/04-22-new.png" alt="image04-22"></p>
+</li>
+<li>
+<p><strong>HANA-HDB-Secondary</strong> 정상적으로 부팅이 되면, <strong>prihana</strong> 인스턴스에 접속합니다.</p>
+</li>
+<li>
+<p>다음 명령을 사용하여 노드의 상태만 확인할 수 있습니다.
+Primary Node에서 테스트 (root 유저사용)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+stonith -t external/ec2 profile<span style="color:#f92672">=</span>cluster port<span style="color:#f92672">=</span>sechana tag<span style="color:#f92672">=</span>PaceTag -S
+</code></pre></div><p><img src="../../images/lab4/lab4-4/images/05-05-1.png" alt="image05-05-1"></p>
+</li>
+</ol>
+<hr>
+<h3 id="오버레이-ip-에이전트-테스트-aws-vpc-move-ip">오버레이 IP 에이전트 테스트 (aws-vpc-move-ip)</h3>
+<p>오버레이 IP 에이전트를 테스트하면 테스트가 실행되는 노드의 오버레이 IP 주소가 로컬로 구성되고 그에 따라 VPC 라우팅 테이블이 수정됩니다. 두 시스템 모두에서 한 번에 한 시스템 씩 root User로 다음 명령을 실행합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">OCF_RESKEY_address<span style="color:#f92672">={</span>VIRTUAL-IPV4-ADDRESS<span style="color:#f92672">}</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>OCF_RESKEY_routing_table<span style="color:#f92672">={</span>AWS-ROUTE-TABLE<span style="color:#f92672">}</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>OCF_RESKEY_interface<span style="color:#f92672">=</span>eth0 OCF_RESKEY_profile<span style="color:#f92672">={</span>AWS-PROFILE<span style="color:#f92672">}</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>OCF_ROOT<span style="color:#f92672">=</span>/usr/lib/ocf /usr/lib/ocf/resource.d/suse/aws-vpc-move-ip start
+</code></pre></div><p>변수는 아래와 같은 명령으로 확인할 수 있습니다. (root 유저사용)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+crm configure show res_AWS_IP
+</code></pre></div><p>사용되는 매개변수는 다음과 같습니다.</p>
+<ul>
+<li><strong>{VIRTUAL-IPV4-ADDRESS}</strong> : 192.168.1.99 : HANA Node Cluster에서 사용하는 VIP 주소입니다.</li>
+<li><strong>{AWS-ROUTE-TABLE}</strong> : 오버레이 IP 주소의 AWS 라우팅 테이블 ID입니다. 이는 모든 실습 사용자마다 다르므로 반드시 확인하여 변경해야합니다.</li>
+<li><strong>{AWS-PROFILE}</strong> : cluster : 필요한 경우 AWS CLI 프로필 이름을 바꿉니다.</li>
+</ul>
+<ol>
+<li>
+<p>오버레이 IP 에이전트 시작 (root 유저 사용)</p>
+<ul>
+<li><strong>{AWS-ROUTE-TABLE}</strong> 확인한 rout table ID로 변경 필요</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+OCF_RESKEY_address<span style="color:#f92672">=</span>192.168.1.99 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>OCF_RESKEY_routing_table<span style="color:#f92672">=</span>&lt;AWS-ROUTE-TABLE&gt; <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>OCF_RESKEY_interface<span style="color:#f92672">=</span>eth0 OCF_ROOT<span style="color:#f92672">=</span>/usr/lib/ocf <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>OCF_RESKEY_profile<span style="color:#f92672">=</span>cluster /usr/lib/ocf/resource.d/suse/aws-vpc-move-ip start
+</code></pre></div><p><img src="../../images/lab4/lab4-4/images/05-07.png" alt="image05-07"></p>
+</li>
+<li>
+<p>IP가 로컬로 설정되었는지 확인하십시오.</p>
+<ul>
+<li><strong>{AWS-ROUTE-TABLE}</strong> 확인한 rout table ID로 변경 필요</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+OCF_RESKEY_address<span style="color:#f92672">=</span>192.168.1.99 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>OCF_RESKEY_routing_table<span style="color:#f92672">=</span>&lt;AWS-ROUTE-TABLE&gt; <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>OCF_RESKEY_interface<span style="color:#f92672">=</span>eth0 OCF_RESKEY_profile<span style="color:#f92672">=</span>cluster <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>OCF_ROOT<span style="color:#f92672">=</span>/usr/lib/ocf /usr/lib/ocf/resource.d/suse/aws-vpc-move-ip monitor
+</code></pre></div><p><img src="../../images/lab4/lab4-4/images/05-08.png" alt="image05-08"></p>
+<p>또는 다음 명령을 통해 Linux에 구성된 IP를 확인할 수도 있습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ip address show
+</code></pre></div><p><img src="../../images/lab4/lab4-4/images/05-09.png" alt="image05-11"></p>
+</li>
+<li>
+<p>테스트 중이 아닌 노드에서 IP를 확인해봅니다. (예. 현재 prihana에서 오버레이 IP를 테스트 중이라면 sechana에서 확인)</p>
+</li>
+<li>
+<p>오버레이 IP 에이전트 중지 (root 유저 사용)</p>
+<ul>
+<li><strong>{AWS-ROUTE-TABLE}</strong> 확인한 rout table ID로 변경 필요</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+OCF_RESKEY_address<span style="color:#f92672">=</span>192.168.1.99 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>OCF_RESKEY_routing_table<span style="color:#f92672">=</span>&lt;AWS-ROUTE-TABLE&gt; <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>OCF_RESKEY_interface<span style="color:#f92672">=</span>eth0 OCF_ROOT<span style="color:#f92672">=</span>/usr/lib/ocf <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>OCF_RESKEY_profile<span style="color:#f92672">=</span>cluster /usr/lib/ocf/resource.d/suse/aws-vpc-move-ip stop
+</code></pre></div><p><img src="../../images/lab4/lab4-4/images/05-10.png" alt="image05-10"></p>
+</li>
+</ol>
+<hr>
+<h3 id="ha-cluster-시작">HA Cluster 시작</h3>
+<p>테스트가 완료되었으므로 HA Cluster를 시작합니다. Cluster Primary node(prihana) 시작 후 Secondary 노드(sechana) 시작합니다.</p>
+<ol>
+<li>
+<p><a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId" target="_blank">EC2 Instance Console</a>에 접속 합니다.</p>
+</li>
+<li>
+<p><strong>HANA-HDB-Primary</strong> 인스턴스를 선택하고, <strong>Connect</strong> 버튼을 누릅니다.
+<img src="../../images/lab4/lab4-4/images/01-01-new.png" alt="image01-01"></p>
+</li>
+<li>
+<p><strong>Session Manager</strong> 를 선택하고, <strong>Connect</strong> 버튼을 누릅니다. Session Manager를 통해 <strong>prihana</strong> 인스턴스에 접속합니다.
+<img src="../../images/lab4/lab4-4/images/01-02-new.png" alt="image01-02"></p>
+</li>
+<li>
+<p>Primary node (prihana) Cluster 시작 (root 유저사용)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+crm cluster start
+</code></pre></div></li>
+<li>
+<p>Primary node (prihana) Cluster 상태 확인 (root 유저사용)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+crm cluster status
+</code></pre></div><p><img src="../../images/lab4/lab4-4/images/05-02.png" alt="image05-02"></p>
+</li>
+<li>
+<p><a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId" target="_blank">EC2 Instance Console</a>에 접속 합니다.</p>
+</li>
+<li>
+<p><strong>HANA-HDB-Secondary</strong> 인스턴스를 선택하고, <strong>Connect</strong> 버튼을 누릅니다.
+<img src="../../images/lab4/lab4-4/images/01-08-new.png" alt="image01-08"></p>
+</li>
+<li>
+<p><strong>Session Manager</strong> 를 선택하고, <strong>Connect</strong> 버튼을 누릅니다. Session Manager를 통해 <strong>sechana</strong> 인스턴스에 접속합니다.
+<img src="../../images/lab4/lab4-4/images/01-02-new.png" alt="image01-02"></p>
+</li>
+<li>
+<p>Secondary node (sechana) Cluster 시작 (root 유저사용)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+crm cluster start
+</code></pre></div></li>
+<li>
+<p>Secondary node (sechana) Cluster 상태 확인</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+crm cluster status
+</code></pre></div><p><img src="../../images/lab4/lab4-4/images/05-02.png" alt="image05-02"></p>
+</li>
+</ol>
+<hr>
+<p align="center">
+© 2020, Amazon Web Services, Inc. or its affiliates. All rights reserved.
+</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../ko/lab4/lab4-3.html" title="Task 03. Perform SAP HANA System Replica"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../ko/lab4/lab4-5.html" title="Task 05 - Upgrade Cluster Software(Optional)" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../../js/clipboard.min.js"></script>
+    <script src="../../js/perfect-scrollbar.min.js"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="../../js/jquery.sticky.js"></script>
+    <script src="../../js/featherlight.min.js"></script>
+    <script src="../../js/html5shiv-printshiv.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../js/modernizr.custom-3.6.0.js"></script>
+    <script src="../../js/learn.js"></script>
+    <script src="../../js/hugo-learn.js"></script>
+
+    <link href="../../mermaid/mermaid.css" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>
